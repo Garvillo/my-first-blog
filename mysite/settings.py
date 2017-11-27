@@ -120,3 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# The value can be a hardcoded URL or a URL name. 
+# The default value for LOGIN_REDIRECT_URL is /accounts/profile/.
+LOGIN_REDIRECT_URL = 'home'
