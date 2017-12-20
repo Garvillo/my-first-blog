@@ -3,5 +3,20 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <h2>Home</h2>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Hora');
+  data.addColumn('number', 'T');
+  data.addRows( {{ data|safe }} );
+
+var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+chart.draw(data, {width: 600, height: 240, title: "Grŕafica de Temperatura (Celsius)/(hora)"});
+
+}
+</script>
+<div id="chart_div">Numbers </div>
 {% endblock %}
